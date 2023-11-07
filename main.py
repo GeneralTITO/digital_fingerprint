@@ -3,6 +3,7 @@
 from tkinter import *
 from tkinter import ttk
 from funcoes.admin import  acessar_parte_restrita
+from funcoes.relogio import atualizar_hora
 
 root = Tk()
 root.title('Fingerprint')
@@ -13,13 +14,14 @@ root.columnconfigure(0, weight=1)
 
 frame_interval_info = ttk.Frame(root)
 frame_interval_info.grid(column=0, row=0, pady=2)
-label_interval_info = ttk.Label(frame_interval_info, text='intervalo de verificação: ', padding=10)
+label_interval_info = ttk.Label(frame_interval_info, text='intervalo de verificação:>>>>9:00 - 9:15<<<< ', padding=10)
 label_interval_info.grid(column=0, row=0)
 
 frame_horario_atual = ttk.Frame(root)
 frame_horario_atual.grid(column=0, row=1, pady=10)
-label_horario_atual = ttk.Label(frame_horario_atual, text='horario atual: ', padding=10)
+label_horario_atual = ttk.Label(frame_horario_atual, padding=10)
 label_horario_atual.grid(column=0, row=0)
+atualizar_hora(label=label_horario_atual, root=root)
 
 
 frame_button = ttk.Frame(root)
