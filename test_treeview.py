@@ -19,7 +19,7 @@ tree.heading('email', text='Email')
 # generate sample data
 contacts = []
 for n in range(1, 100):
-    contacts.append((f'first {n}', f'last {n}', f'email{n}@example.com'))
+    contacts.append([f'first {n}', f'last {n}', f'email{n}@example.com'])
 
 # add data to the treeview
 for contact in contacts:

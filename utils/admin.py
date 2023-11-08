@@ -59,6 +59,7 @@ def acessar_parte_restrita(senha_entry):
             nome.set("")
             telefone.set("")
             new_person.clear()
+            atualizar_treeview()
 
         button_capture = ttk.Button(
             label_enroll_main,
@@ -85,6 +86,14 @@ def acessar_parte_restrita(senha_entry):
         treeview.heading("Nome", text="Nome")
         treeview.heading("Telefone", text="Telefone")
 
+        def atualizar_treeview():
+            for item in treeview.get_children():
+                treeview.delete(item)
+            people = list_treeview()
+            for person in people:
+                treeview.insert('', END, values=person)
+
+        atualizar_treeview()
         treeview.grid(column=0, row=0)
 
         # opção 2 do notebook
