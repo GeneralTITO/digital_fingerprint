@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
 from utils.fingerprint import enroll
-
+from utils.handle_data import *
 
 def acessar_parte_restrita(senha_entry):
     senha_correta = "123"
@@ -50,24 +50,15 @@ def acessar_parte_restrita(senha_entry):
         def capturar_digital():
             fingerprint = enroll()
             new_person.append(fingerprint)
-            print(new_person)
 
-        def cadastrar ():
+        def cadastrar():
             new_person.append(nome.get())
             new_person.append(telefone.get())
-            print(new_person)
-            nome.set('')
-            telefone.set('')
+            salvar_pessoas(new_person)
+            print(carregar_pessoas())
+            nome.set("")
+            telefone.set("")
             new_person.clear()
-        # def cadastrar():
-        #     nome1 = nome.get()
-        #     telefone1= telefone.get()
-        #     new_person.appen(nome1)
-        #     new_person.append(telefone1)
-        #     print(new_person)
-        #     nome.set('')
-        #     telefone.set('')
-        #     new_person = []
 
         button_capture = ttk.Button(
             label_enroll_main,

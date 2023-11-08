@@ -2,8 +2,10 @@ import pickle
 
 
 def salvar_pessoas(lista_pessoas):
+    list_old = carregar_pessoas()
+    list_old.append(lista_pessoas)
     with open("pessoas.pickle", "wb") as arquivo:
-        pickle.dump(lista_pessoas, arquivo)
+        pickle.dump(list_old, arquivo)
 
 
 def carregar_pessoas():
