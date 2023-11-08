@@ -1,9 +1,8 @@
 altgraph==0.17.4
-Babel==2.13.1
+nbsp_python @ file:///C:/Users/jv_cr/OneDrive/%C3%81rea%20de%20Trabalho/workspace/tkinter_test/nbsp_fingerprint
 packaging==23.2
 pefile==2023.2.7
 pyinstaller==6.1.0
 pyinstaller-hooks-contrib==2023.10
 pywin32-ctypes==0.2.2
 setuptools==68.2.2
-tkcalendar==1.6.1

@@ -1,14 +1,9 @@
+from data import pessoas_cadastradas
 import pickle
 
+def save(new_person):
+    pessoas_cadastradas.append(new_person)
+    return pessoas_cadastradas
 
-def carregar_dicionario(nome_arquivo):
-    try:
-        with open(nome_arquivo, "rb") as arquivo:
-            return pickle.load(arquivo)
-
-    except (FileNotFoundError, EOFError):
-        return {}
-
-def salvar_dicionario(dicionario, nome_arquivo):
-    with open(nome_arquivo, 'wb') as arquivo:
-        pickle.dump(dicionario, arquivo)
+def get_data():
+    return pessoas_cadastradas
