@@ -1,8 +1,8 @@
 from tkinter import *
 from tkinter import ttk
-from funcoes.admin import  acessar_parte_restrita
-from funcoes.relogio import atualizar_hora
-from funcoes.fingerprint import *
+from utils.admin import  acessar_parte_restrita
+from utils.relogio import atualizar_hora
+from utils.fingerprint import *
 
 root = Tk()
 root.title('Fingerprint')
