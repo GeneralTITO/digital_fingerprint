@@ -1,9 +1,16 @@
-from data import pessoas_cadastradas
 import pickle
 
-def save(new_person):
-    pessoas_cadastradas.append(new_person)
-    return pessoas_cadastradas
 
-def get_data():
-    return pessoas_cadastradas
+def salvar_pessoas(lista_pessoas):
+    with open("pessoas.pickle", "wb") as arquivo:
+        pickle.dump(lista_pessoas, arquivo)
+
+
+def carregar_pessoas():
+    try:
+        with open("pessoas.pickle", "rb") as arquivo:
+            lista_pessoas = pickle.load(arquivo)
+    except FileNotFoundError:
+        lista_pessoas = []
+
+    return lista_pessoas

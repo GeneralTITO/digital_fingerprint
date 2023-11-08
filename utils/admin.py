@@ -2,7 +2,6 @@ from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
 from utils.fingerprint import enroll
-from data import pessoas_cadastradas
 
 
 def acessar_parte_restrita(senha_entry):
@@ -31,10 +30,7 @@ def acessar_parte_restrita(senha_entry):
 
         nome = StringVar()
         telefone = StringVar()
-        fingerprint_hash = ""
-        new_person = {
-            
-        }
+        new_person = []
 
         # parte 1 da opção 1
         label_enroll_main = ttk.Labelframe(
@@ -52,15 +48,38 @@ def acessar_parte_restrita(senha_entry):
         entry_phone.grid(column=1, row=1, pady=10)
 
         def capturar_digital():
-            fingerprint_hash = enroll()
+            fingerprint = enroll()
+            new_person.append(fingerprint)
+            print(new_person)
 
+        def cadastrar ():
+            new_person.append(nome.get())
+            new_person.append(telefone.get())
+            print(new_person)
+            nome.set('')
+            telefone.set('')
+            new_person.clear()
+        # def cadastrar():
+        #     nome1 = nome.get()
+        #     telefone1= telefone.get()
+        #     new_person.appen(nome1)
+        #     new_person.append(telefone1)
+        #     print(new_person)
+        #     nome.set('')
+        #     telefone.set('')
+        #     new_person = []
 
         button_capture = ttk.Button(
-            label_enroll_main, text="Capturar digital", command=capturar_digital, padding=3
+            label_enroll_main,
+            text="Capturar digital",
+            command=capturar_digital,
+            padding=3,
         )
         button_capture.grid(column=0, row=3, columnspan=2, pady=5)
 
-        button_enroll = ttk.Button(label_enroll_main, text="Cadastrar", padding=10)
+        button_enroll = ttk.Button(
+            label_enroll_main, text="Cadastrar", padding=10, command=cadastrar
+        )
         button_enroll.grid(column=0, row=4, columnspan=2, pady=10)
 
         # parte 2 da opção 1
