@@ -1,9 +1,8 @@
-#main.py
-
 from tkinter import *
 from tkinter import ttk
 from funcoes.admin import  acessar_parte_restrita
 from funcoes.relogio import atualizar_hora
+from funcoes.fingerprint import *
 
 root = Tk()
 root.title('Fingerprint')
@@ -14,7 +13,7 @@ root.columnconfigure(0, weight=1)
 
 frame_interval_info = ttk.Frame(root)
 frame_interval_info.grid(column=0, row=0, pady=2)
-label_interval_info = ttk.Label(frame_interval_info, text='intervalo de verificação:>>>>9:00 - 9:15<<<< ', padding=10)
+label_interval_info = ttk.Label(frame_interval_info, text='intervalo de verificação:<<<9:00 - 9:15>>> ', padding=10)
 label_interval_info.grid(column=0, row=0)
 
 frame_horario_atual = ttk.Frame(root)
@@ -26,7 +25,7 @@ atualizar_hora(label=label_horario_atual, root=root)
 
 frame_button = ttk.Frame(root)
 frame_button.grid(column=0, row=3, pady=10)
-button_verication = ttk.Button(frame_button, text='Verificar digital', padding=10)
+button_verication = ttk.Button(frame_button, text='Verificar digital', padding=10, command=enroll)
 button_verication.grid(column=0, row=0)
 label_verication = ttk.Label(frame_button, text='<<nome>> digital verificada')
 label_verication.grid(row=2, column=0)
@@ -40,7 +39,11 @@ label_admin.grid(column=0, row=0)
 senha = StringVar()
 entry_admin = ttk.Entry(frame_admin, textvariable=senha, show='*')
 entry_admin.grid(column=2, row=0, padx=10, pady=10)
-button_access = ttk.Button(frame_admin, text='Acessar', command=lambda:acessar_parte_restrita(senha))
+def access_buttun_fuc():
+    acessar_parte_restrita(senha)
+    senha.set('')
+button_access = ttk.Button(frame_admin, text='Acessar', command=access_buttun_fuc)
 button_access.grid(row=0, column=3)
+
 
 root.mainloop()
