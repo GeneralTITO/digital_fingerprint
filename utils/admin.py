@@ -55,7 +55,6 @@ def acessar_parte_restrita(senha_entry):
             new_person.append(nome.get())
             new_person.append(telefone.get())
             salvar_pessoas(new_person)
-            print(carregar_pessoas())
             nome.set("")
             telefone.set("")
             new_person.clear()
