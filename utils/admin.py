@@ -85,6 +85,45 @@ def acessar_parte_restrita(senha_entry):
         treeview.heading("Nome", text="Nome")
         treeview.heading("Telefone", text="Telefone")
 
+
+        def editar_selecionado():
+            item_selecionado = treeview.focus()
+            valores_atuais = treeview.item(item_selecionado, 'values')
+
+            def salvar_edicao():
+                # Atualiza os valores na Treeview
+                novos_valores = [entry.get() for entry in entry_vars]
+                treeview.item(item_selecionado, values=novos_valores)
+                # Salva as alterações no arquivo ou banco de dados, se necessário
+                list_old = carregar_pessoas()
+                for i, item in enumerate(list_old):
+                    if item[1] == valores_atuais[0]:
+                        list_old[i][1]=novos_valores[0]
+                        list_old[i][2]=novos_valores[1]
+                        sobrescrever(list_old)
+
+                # Fecha a janela de edição
+                janela_edicao.destroy()
+
+            # Cria uma nova janela para edição
+            janela_edicao = Toplevel()
+            janela_edicao.title("Editar Funcionário")
+
+            # Adiciona Entry para cada coluna
+            entry_vars = []
+            for i, valor_atual in enumerate(valores_atuais):
+                ttk.Label(janela_edicao, text=f"{treeview.heading(i)['text']}").grid(row=i, column=0, padx=5, pady=5)
+                novo_valor = StringVar(value=valor_atual)
+                entry_vars.append(novo_valor)
+                ttk.Entry(janela_edicao, textvariable=novo_valor).grid(row=i, column=1, padx=5, pady=5)
+
+            # Adiciona um botão "Salvar"
+            ttk.Button(janela_edicao, text="Salvar", command=salvar_edicao).grid(row=len(valores_atuais), columnspan=2, pady=10)
+
+        # Adiciona o evento de duplo clique na Treeview
+        treeview.bind("<Double-1>", lambda event: editar_selecionado())
+
+        # ... (seu código existente)
         def atualizar_treeview():
             for item in treeview.get_children():
                 treeview.delete(item)

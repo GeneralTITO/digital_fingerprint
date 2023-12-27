@@ -7,6 +7,10 @@ def salvar_pessoas(lista_pessoas):
     with open("pessoas.pickle", "wb") as arquivo:
         pickle.dump(list_old, arquivo)
 
+def sobrescrever(lista_pessoas):
+    with open("pessoas.pickle", "wb") as arquivo:
+        pickle.dump(lista_pessoas, arquivo)
+
 
 def carregar_pessoas():
     try:
