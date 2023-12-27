@@ -36,5 +36,7 @@ def verify():
     pessoas = carregar_pessoas()
     for pessoa in pessoas:
         if nbsp.match(pessoa[0], fingerprint_hash):
+            nbsp.terminate_handle()
             return pessoa[1]
+    nbsp.terminate_handle()
     return "Digital não cadastrada"

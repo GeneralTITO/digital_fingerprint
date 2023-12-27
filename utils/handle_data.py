@@ -26,3 +26,4 @@ def carregar_pessoas():
 def list_treeview():
     nova_lista_pessoas = [pessoa[1:] for pessoa in carregar_pessoas()]
     return nova_lista_pessoas
+
