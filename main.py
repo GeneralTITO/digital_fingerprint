@@ -24,7 +24,7 @@ except:
 root = Tk()
 root.title("Fingerprint")
 root.iconbitmap("./img/favicon.ico")
-root.geometry('600x600')
+root.geometry("600x600")
 
 root.rowconfigure(2, weight=1)
 root.columnconfigure(0, weight=1)
@@ -50,10 +50,14 @@ def verify_func():
 
 
 style_button = ttk.Style()
-style_button.configure('my.TButton', font=('',30))
+style_button.configure("my.TButton", font=("", 30))
 
 button_verication = ttk.Button(
-    frame_button, text="Verificar digital", padding=10, command=verify_func, style='my.TButton'
+    frame_button,
+    text="Verificar digital",
+    padding=10,
+    command=verify_func,
+    style="my.TButton",
 )
 button_verication.grid(column=0, row=0)
 label_verication = ttk.Label(frame_button, textvariable=name_var)

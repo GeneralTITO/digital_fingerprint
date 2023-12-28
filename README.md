@@ -11,7 +11,7 @@
 - [X] poder editar esses dados
 - [X] cadastrar salvando em um arquivo
 - [X] enviar os dados no telegram por dia escolhido
-- [ ] aumentar a tela do admin e trocar o telefone por email
+- [X] aumentar a tela do admin e trocar o telefone por email
 - [ ] enviar email de confirmação do ponto pro funcionario
 - [ ] poder excluir um funcionario
 - [ ] salvar o arquivo de dados no pc e na nuvem

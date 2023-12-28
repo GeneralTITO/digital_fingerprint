@@ -16,25 +16,20 @@ def acessar_parte_restrita(senha_entry):
         # cria a janela
         janela_restrita = Toplevel()
         janela_restrita.title("Parte Restrita")
-        janela_restrita.geometry("800x600")
 
         # cria o frame principal
-        mainframe = ttk.Frame(janela_restrita, padding=10, width=600)
-        mainframe.grid(row=0, column=0)
+        mainframe = ttk.Frame(janela_restrita, padding=10)
+        mainframe.grid(row=0, column=0, sticky=(N, S, W, E))
 
-        # cria o notebook
-        main_notebook = ttk.Notebook(mainframe, style="TNotebook.Tab", width=600)
-        main_notebook.grid(row=0, column=0, sticky=(N, S, E, W))
+        # frame da parte 1
+        f1 = ttk.Frame(mainframe, padding=10)
 
-        # opção 1 do notebook
-        f1 = ttk.Frame(main_notebook, padding=10)
-        main_notebook.add(f1, text="Funcionários")
+        f1.grid(row=0, column=0, sticky=(N, S, W, E))
 
         nome = StringVar()
         email = StringVar()
         new_person = []
 
-        # parte 1 da opção 1
         label_enroll_main = ttk.Labelframe(
             f1, text="Cadastrar funcionários", padding=10
         )
@@ -42,11 +37,11 @@ def acessar_parte_restrita(senha_entry):
 
         label_enroll_name = ttk.Label(label_enroll_main, text="Nome")
         label_enroll_name.grid(column=0, row=0, pady=10)
-        entry_name = ttk.Entry(label_enroll_main, textvariable=nome, width=10)
+        entry_name = ttk.Entry(label_enroll_main, textvariable=nome, width=50)
         entry_name.grid(column=1, row=0, sticky=(E, W))
         label_enroll_email = ttk.Label(label_enroll_main, text="Email")
         label_enroll_email.grid(column=0, row=1, padx=10)
-        entry_email = ttk.Entry(label_enroll_main, textvariable=email)
+        entry_email = ttk.Entry(label_enroll_main, textvariable=email, width=50)
         entry_email.grid(column=1, row=1, pady=10, sticky=(E, W))
 
         def capturar_digital():
@@ -54,13 +49,15 @@ def acessar_parte_restrita(senha_entry):
             new_person.append(fingerprint)
 
         def cadastrar():
-            new_person.append(nome.get())
-            new_person.append(email.get())
-            salvar_pessoas(new_person)
-            nome.set("")
-            email.set("")
-            new_person.clear()
-            atualizar_treeview()
+            if len(new_person) == 1:
+                new_person.append(nome.get())
+                new_person.append(email.get())
+            if len(new_person) == 3:
+                salvar_pessoas(new_person)
+                nome.set("")
+                email.set("")
+                new_person.clear()
+                atualizar_treeview()
 
         button_capture = ttk.Button(
             label_enroll_main,
@@ -71,11 +68,15 @@ def acessar_parte_restrita(senha_entry):
         button_capture.grid(column=0, row=3, columnspan=2, pady=5)
 
         button_enroll = ttk.Button(
-            label_enroll_main, text="Cadastrar", padding=10, command=cadastrar
+            label_enroll_main,
+            text="Cadastrar",
+            padding=10,
+            command=cadastrar,
         )
+
         button_enroll.grid(column=0, row=4, columnspan=2, pady=10)
 
-        # parte 2 da opção 1
+        # parte 2
         label_alredy_enrolled = ttk.Labelframe(
             f1, text="Funcionários cadastrados", padding=10
         )
@@ -92,10 +93,9 @@ def acessar_parte_restrita(senha_entry):
             valores_atuais = treeview.item(item_selecionado, "values")
 
             def salvar_edicao():
-                # Atualiza os valores na Treeview
                 novos_valores = [entry.get() for entry in entry_vars]
                 treeview.item(item_selecionado, values=novos_valores)
-                # Salva as alterações no arquivo ou banco de dados, se necessário
+
                 list_old = carregar_pessoas()
                 for i, item in enumerate(list_old):
                     if item[1] == valores_atuais[0]:
@@ -103,14 +103,11 @@ def acessar_parte_restrita(senha_entry):
                         list_old[i][2] = novos_valores[1]
                         sobrescrever(list_old)
 
-                # Fecha a janela de edição
                 janela_edicao.destroy()
 
-            # Cria uma nova janela para edição
             janela_edicao = Toplevel()
             janela_edicao.title("Editar Funcionário")
 
-            # Adiciona Entry para cada coluna
             entry_vars = []
             for i, valor_atual in enumerate(valores_atuais):
                 ttk.Label(janela_edicao, text=f"{treeview.heading(i)['text']}").grid(
@@ -122,15 +119,12 @@ def acessar_parte_restrita(senha_entry):
                     row=i, column=1, padx=5, pady=5
                 )
 
-            # Adiciona um botão "Salvar"
             ttk.Button(janela_edicao, text="Salvar", command=salvar_edicao).grid(
                 row=len(valores_atuais), columnspan=2, pady=10
             )
 
-        # Adiciona o evento de duplo clique na Treeview
         treeview.bind("<Double-1>", lambda event: editar_selecionado())
 
-        # ... (seu código existente)
         def atualizar_treeview():
             for item in treeview.get_children():
                 treeview.delete(item)
@@ -140,10 +134,5 @@ def acessar_parte_restrita(senha_entry):
 
         atualizar_treeview()
         treeview.grid(column=0, row=0)
-
-        # opção 2 do notebook
-        f2 = ttk.Frame(main_notebook)
-        main_notebook.add(f2, text="Configurar intervalos de verificação")
-
     else:
         messagebox.showerror("Senha Incorreta", "A senha inserida está incorreta.")
