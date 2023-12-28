@@ -3,19 +3,24 @@ from tkinter import ttk
 from utils.admin import acessar_parte_restrita
 from utils.relogio import atualizar_hora
 from utils.fingerprint import *
-import threading
 from utils.bot import run_bot
+import threading
 import time
 import sys
 import asyncio
 
 asyncio.run(asyncio.sleep(0))
-telegram_thread = threading.Thread(target=run_bot, daemon=True)
-telegram_thread.start()
-time.sleep(2)
-if not telegram_thread.is_alive():
-    print("Erro ao iniciar o bot do Telegram.")
-    sys.exit(1)
+
+try:
+    telegram_thread = threading.Thread(target=run_bot, daemon=True)
+    telegram_thread.start()
+    time.sleep(2)
+    if not telegram_thread.is_alive():
+        print("Erro ao iniciar o bot do Telegram.")
+        sys.exit(1)
+except:
+    pass
+
 root = Tk()
 root.title("Fingerprint")
 root.iconbitmap("./img/favicon.ico")
