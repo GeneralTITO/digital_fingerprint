@@ -54,25 +54,3 @@ def search_by_day(dia_especifico):
         mensagem += f"{registro[0]} - {registro[2]}\n"
 
     return mensagem
-
-
-# # Exemplo de uso
-# registros = [
-#     ["joao", "123123", "29/12/2023 14:15"],
-#     ["messi", "0000", "28/12/2023 14:15"],
-#     ["joao", "123123", "28/12/2023 14:44"],
-#     ["joao", "123123", "28/12/2023 14:56"],
-#     ["messi", "0000", "28/12/2023 14:56"],
-#     ["cr7", "7777", "28/12/2023 14:56"],
-#     ["joao", "123123", "28/12/2023 15:05"],
-#     ["joao", "123123", "28/12/2023 15:09"],
-#     ["messi", "0000", "28/12/2023 15:09"],
-#     ["cr7", "7777", "28/12/2023 15:09"],
-# ]
-
-# dia_especifico = "29/12/2023"
-# registros_encontrados = search_by_day(registros, dia_especifico)
-
-# print(f"Registros encontrados para o dia {dia_especifico}:")
-# for registro in registros_encontrados:
-#     print(registro)

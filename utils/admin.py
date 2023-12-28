@@ -13,7 +13,6 @@ def acessar_parte_restrita(senha_entry):
         messagebox.showinfo(
             "Acesso Permitido", "Você acessou a parte restrita do programa."
         )
-        # cria a janela
         janela_restrita = Toplevel()
         janela_restrita.title("Parte Restrita")
 
@@ -98,10 +97,8 @@ def acessar_parte_restrita(senha_entry):
             )
 
             if confirma_exclusao:
-                # Remove o funcionário do Treeview
                 treeview.delete(item_selecionado)
 
-                # Remove o funcionário do arquivo de dados
                 list_old = carregar_pessoas()
                 for i, item in enumerate(list_old):
                     if item[1] == valores_atuais[0]:
@@ -143,14 +140,13 @@ def acessar_parte_restrita(senha_entry):
                 row=len(valores_atuais), columnspan=2, pady=10
             )
 
-
         def atualizar_treeview():
             for item in treeview.get_children():
                 treeview.delete(item)
             people = list_treeview()
             for person in people:
                 treeview.insert("", END, values=person)
-   
+
         button_excluir = ttk.Button(
             label_alredy_enrolled,
             text="Excluir",
@@ -158,14 +154,14 @@ def acessar_parte_restrita(senha_entry):
             padding=2,
         )
         button_excluir.grid(column=0, row=2, pady=10, sticky=(W))
-      
+
         button_editar = ttk.Button(
             label_alredy_enrolled,
             text="Editar",
             command=editar_selecionado,
             padding=2,
         )
-        button_editar.grid(column=0, row=2, pady=10,sticky=(E))
+        button_editar.grid(column=0, row=2, pady=10, sticky=(E))
 
         atualizar_treeview()
         treeview.grid(column=0, row=0)
