@@ -11,3 +11,8 @@ def actual_time():
     current_time = datetime.datetime.now()
     formatted_time = current_time.strftime("%d/%m/%Y %H:%M")
     return formatted_time
+
+
+def actual_time_not_formated():
+    current_time = datetime.datetime.now()
+    return current_time

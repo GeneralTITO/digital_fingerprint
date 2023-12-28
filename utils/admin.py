@@ -15,6 +15,7 @@ def acessar_parte_restrita(senha_entry):
         # cria a janela
         janela_restrita = Toplevel()
         janela_restrita.title("Parte Restrita")
+        janela_restrita.geometry('800x600')
 
         # cria o frame principal
         mainframe = ttk.Frame(janela_restrita, padding=10)
@@ -29,7 +30,7 @@ def acessar_parte_restrita(senha_entry):
         main_notebook.add(f1, text="Funcionários")
 
         nome = StringVar()
-        telefone = StringVar()
+        email = StringVar()
         new_person = []
 
         # parte 1 da opção 1
@@ -42,10 +43,10 @@ def acessar_parte_restrita(senha_entry):
         label_enroll_name.grid(column=0, row=0, pady=10)
         entry_name = ttk.Entry(label_enroll_main, textvariable=nome)
         entry_name.grid(column=1, row=0)
-        label_enroll_phone = ttk.Label(label_enroll_main, text="telefone")
-        label_enroll_phone.grid(column=0, row=1, padx=10)
-        entry_phone = ttk.Entry(label_enroll_main, textvariable=telefone)
-        entry_phone.grid(column=1, row=1, pady=10)
+        label_enroll_email = ttk.Label(label_enroll_main, text="email")
+        label_enroll_email.grid(column=0, row=1, padx=10)
+        entry_email = ttk.Entry(label_enroll_main, textvariable=email)
+        entry_email.grid(column=1, row=1, pady=10)
 
         def capturar_digital():
             fingerprint = enroll()

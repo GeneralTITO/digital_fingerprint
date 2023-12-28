@@ -9,6 +9,8 @@ from telegram.ext import (
 )
 from utils.verifications import load_verification
 import asyncio
+from utils.verifications import search_by_day
+
 
 def run_bot():
     logging.basicConfig(
@@ -22,11 +24,12 @@ def run_bot():
             text=" Bem-vindo ao Bot de Controle de Ponto! 🤖✨Estarei mantendo você informado sobre os horários de entrada e saída dos funcionários.",
         )
 
-    async def caps(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    async def ponto(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if context.args[0] == "3771":
-            
+            message = search_by_day(context.args[1])
+
             await context.bot.send_message(
-                chat_id=update.effective_chat.id, text='ahhhhh lelek'
+                chat_id=update.effective_chat.id, text=f"{message}"
             )
         else:
             await context.bot.send_message(
@@ -49,12 +52,10 @@ def run_bot():
     )
 
     start_handler = CommandHandler("start", start)
-    enviar_handler = CommandHandler("todas", start)
-    caps_handler = CommandHandler("caps", caps)
+    caps_handler = CommandHandler("ponto", ponto)
     unknown_handler = MessageHandler(filters.COMMAND, unknown)
 
     application.add_handler(start_handler)
-    application.add_handler(enviar_handler)
     application.add_handler(caps_handler)
     application.add_handler(unknown_handler)
 
