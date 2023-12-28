@@ -66,7 +66,7 @@ button_verication = ttk.Button(
     style="my.TButton",
 )
 button_verication.grid(column=0, row=0)
-label_verication = ttk.Label(frame_button, textvariable=name_var)
+label_verication = ttk.Label(frame_button, textvariable=name_var, font=('',15))
 label_verication.grid(row=2, column=0)
 
 ttk.Separator(root, orient="horizontal").grid(

@@ -7,9 +7,7 @@ from datetime import datetime
 def save_verification(new_verification):
     list_old = load_verification()
     real_time = actual_time()
-    print(real_time, " time")
     data = [new_verification[1], new_verification[2], real_time]
-    print(data, "data")
     list_old.append(data)
     with open("verifications.pickle", "wb") as arquivo:
         pickle.dump(list_old, arquivo)
