@@ -13,8 +13,8 @@
 - [X] enviar os dados no telegram por dia escolhido
 - [X] aumentar a tela do admin e trocar o telefone por email
 - [X] verificação na hora de cadastrar para n ir vazio
-- [ ] enviar email de confirmação do ponto pro funcionario
-- [ ] poder excluir um funcionario
+- [X] enviar email de confirmação do ponto pro funcionario
+- [X] poder excluir um funcionario
 - [ ] salvar o arquivo de dados no pc e na nuvem
 - [ ] poder abrir um arquivo 
 
