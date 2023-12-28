@@ -1,6 +1,6 @@
 import nbsp_python as nbsp
 from utils.handle_data import carregar_pessoas
-
+from utils.verifications import save_verification
 
 def enroll():
     try:
@@ -37,6 +37,7 @@ def verify():
     for pessoa in pessoas:
         if nbsp.match(pessoa[0], fingerprint_hash):
             nbsp.terminate_handle()
+            save_verification(pessoa)
             return pessoa[1]
     nbsp.terminate_handle()
     return "Digital não cadastrada"
