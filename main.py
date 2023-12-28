@@ -38,8 +38,6 @@ atualizar_hora(label=label_horario_atual, root=root)
 
 frame_button = ttk.Frame(root)
 frame_button.grid(column=0, row=2, pady=10)
-# frame_button.columnconfigure(0, weight=1)
-# frame_button.rowconfigure(1, weight=1)
 
 name_var = StringVar()
 
