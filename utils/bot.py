@@ -21,7 +21,7 @@ def run_bot():
     async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await context.bot.send_message(
             chat_id=update.effective_chat.id,
-            text=" Bem-vindo ao Bot de Controle de Ponto! 🤖✨Estarei mantendo você informado sobre os horários de entrada e saída dos funcionários.",
+            text=" Bem-vindo ao Bot de Controle de Ponto! 🤖✨Estarei mantendo você informado sobre os horários de entrada e saída dos funcionários. \n Para utilizar a função digite /ponto + senha + data (dia/mes/ano)",
         )
 
     async def ponto(update: Update, context: ContextTypes.DEFAULT_TYPE):
