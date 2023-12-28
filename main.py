@@ -4,10 +4,12 @@ from utils.admin import acessar_parte_restrita
 from utils.relogio import atualizar_hora
 from utils.fingerprint import *
 from utils.bot import run_bot
+from utils.email import send_email_async
 import threading
 import time
 import sys
 import asyncio
+
 
 asyncio.run(asyncio.sleep(0))
 
@@ -43,10 +45,14 @@ name_var = StringVar()
 
 
 def verify_func():
-    name = verify()
-    if name == "Digital não cadastrada":
+    pessoa = verify()
+    if pessoa[1] == "Digital não cadastrada":
         return name_var.set("Digital não cadastrada")
-    name_var.set(f"{name}, digital verificada")
+    try:
+        send_email_async(pessoa[2])
+    except:
+        pass
+    name_var.set(f"{pessoa[1]}, digital verificada")
 
 
 style_button = ttk.Style()

@@ -38,6 +38,6 @@ def verify():
         if nbsp.match(pessoa[0], fingerprint_hash):
             nbsp.terminate_handle()
             save_verification(pessoa)
-            return pessoa[1]
+            return pessoa
     nbsp.terminate_handle()
     return "Digital não cadastrada"

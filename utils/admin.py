@@ -52,12 +52,12 @@ def acessar_parte_restrita(senha_entry):
             if len(new_person) == 1:
                 new_person.append(nome.get())
                 new_person.append(email.get())
-            if len(new_person) == 3:
-                salvar_pessoas(new_person)
-                nome.set("")
-                email.set("")
-                new_person.clear()
-                atualizar_treeview()
+                if len(new_person) == 3:
+                    salvar_pessoas(new_person)
+                    nome.set("")
+                    email.set("")
+                    new_person.clear()
+                    atualizar_treeview()
 
         button_capture = ttk.Button(
             label_enroll_main,
