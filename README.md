@@ -1,6 +1,13 @@
-# tkinter_fingerprint
+# Sistema de Registro de Ponto de Funcionários
 
+## Visão Geral
 
+Este é um sistema de registro de ponto de funcionários, desenvolvido para facilitar o acompanhamento preciso do horário de entrada e saída dos colaboradores.
+
+## Funcionalidades Principais
+
+- Registro de ponto de entrada e saída.
+- Relatórios de presença diários
 
 ## To Do:
 - [X] cadastrar salvando em um arquivo
