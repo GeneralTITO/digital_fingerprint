@@ -1,14 +1,33 @@
 import pickle
 
 
-def carregar_dicionario(nome_arquivo):
+def salvar_pessoas(lista_pessoas):
+    list_old = carregar_pessoas()
+    list_old.append(lista_pessoas)
+    with open("pessoas.pickle", "wb") as arquivo:
+        pickle.dump(list_old, arquivo)
+
+def sobrescrever(lista_pessoas):
+    with open("pessoas.pickle", "wb") as arquivo:
+        pickle.dump(lista_pessoas, arquivo)
+
+
+def carregar_pessoas():
     try:
-        with open(nome_arquivo, "rb") as arquivo:
-            return pickle.load(arquivo)
+        with open("pessoas.pickle", "rb") as arquivo:
+            lista_pessoas = pickle.load(arquivo)
+    except FileNotFoundError:
+        return []
+    except EOFError:
+        return []
+    except Exception as e:
+        print("An error occurred while loading data:", str(e))
+        return []
 
-    except (FileNotFoundError, EOFError):
-        return {}
+    return lista_pessoas
 
-def salvar_dicionario(dicionario, nome_arquivo):
-    with open(nome_arquivo, 'wb') as arquivo:
-        pickle.dump(dicionario, arquivo)
+
+def list_treeview():
+    nova_lista_pessoas = [pessoa[1:] for pessoa in carregar_pessoas()]
+    return nova_lista_pessoas
+
