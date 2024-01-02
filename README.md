@@ -46,7 +46,7 @@ Este é um sistema modelo de registro de ponto de funcionários, desenvolvido pa
 - [X] verificação na hora de cadastrar para n ir vazio
 - [X] enviar email de confirmação do ponto pro funcionario
 - [X] poder excluir um funcionario
-- [ ] salvar o arquivo de dados no pc e na nuvem
+- [ ] salvar o arquivo de dados na nuvem
 - [ ] poder abrir um arquivo 
 
 
