@@ -1,8 +1,8 @@
-# Sistema de Registro de Ponto de Funcionários
+# Sistema modelo de Registro de Ponto de Funcionários
 
 ## Visão Geral
 
-Este é um sistema de registro de ponto de funcionários, desenvolvido para facilitar o acompanhamento preciso do horário de entrada e saída dos colaboradores.
+Este é um sistema modelo de registro de ponto de funcionários, desenvolvido para facilitar o acompanhamento preciso do horário de entrada e saída dos colaboradores.
 
 ## Funcionalidades Principais
 
@@ -21,7 +21,17 @@ Este é um sistema de registro de ponto de funcionários, desenvolvido para faci
  ![siga as instruções](./img/digital3.png)
 
  ## 2- Agora você pode voltar e verificar sua digital.
- 
+ ![verifica](./img/verifica.png)
+ ![verifica](./img/verifica1.png)
+
+ Ao fazer a verificação, a confirmação pode vir de inumeras formas, como é um programa modelo, e de baixo custo, o funcionario receberá um email para a confirmação
+ ![verifica](./img/verifica2.png)
+
+ Para o controle de horários, também foi feita uma forma de baixo custo:
+  Junto com o programa é iniciado um bot do telegram, que pode enviar as informações que for solicitado remotamente.
+ ![verifica](./img/telegram.png)
+
+
 
 ## To Do:
 - [X] cadastrar salvando em um arquivo
