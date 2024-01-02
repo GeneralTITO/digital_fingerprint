@@ -16,9 +16,9 @@ Este é um sistema de registro de ponto de funcionários, desenvolvido para faci
  ![cadastrando funcionario](./img/cadastrando.png)
  ### 1.1- Cadastre a digital
  ![cadastrando funcionario](./img/digital.png)
- ![aperte em 'next'](./img/digital.png)
- ![escolha o dedo que quer cadastrar](./img/digital.png)
- ![siga as instruções](./img/digital.png)
+ ![aperte em 'next'](./img/digital1.png)
+ ![escolha o dedo que quer cadastrar](./img/digital2.png)
+ ![siga as instruções](./img/digital3.png)
 
  ## 2- Agora você pode voltar e verificar sua digital.
  
