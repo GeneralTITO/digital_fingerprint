@@ -9,6 +9,20 @@ Este é um sistema de registro de ponto de funcionários, desenvolvido para faci
 - Registro de ponto de entrada e saída.
 - Relatórios de presença diários
 
+## Como usar :
+
+ ### 1- Entre na área admin e cadastre  funcionarios
+ ![entrando na área admin](./img//admin.png)
+ ![cadastrando funcionario](./img/cadastrando.png)
+ ### 1.1- Cadastre a digital
+ ![cadastrando funcionario](./img/digital.png)
+ ![aperte em 'next'](./img/digital.png)
+ ![escolha o dedo que quer cadastrar](./img/digital.png)
+ ![siga as instruções](./img/digital.png)
+
+ ## 2- Agora você pode voltar e verificar sua digital.
+ 
+
 ## To Do:
 - [X] cadastrar salvando em um arquivo
 - [X] limpar os campos das entry após o cadastro
