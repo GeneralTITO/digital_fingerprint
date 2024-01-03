@@ -8,8 +8,8 @@ def send_email_async(to):
     def send_email_inner():
         smtp_server = 'smtp.gmail.com'
         smtp_port = 587
-        smtp_username = 'ddigitalfingerprint@gmail.com'
-        smtp_password = 'lrxy eyfs agcj vehl'
+        smtp_username = 'email'
+        smtp_password = 'chave'
 
         server = smtplib.SMTP(smtp_server, smtp_port)
         server.starttls()  
