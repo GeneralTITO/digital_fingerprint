@@ -52,10 +52,10 @@ Este é um sistema modelo de registro de ponto de funcionários, desenvolvido pa
 ## Como Executar o Sistema de Registro de Ponto de Funcionários
 
 ### Requisitos:
-
-1. Ter o compilador C/C++ MSVC para compilar a biblioteca modificada `nbsp_fingerprint`.
-2. Ter Python instalado.
-3. Instalar todas as bibliotecas listadas no arquivo `requirements.txt`.
+1. Ter um Leitor Biométrico Nitgen Hamster III/DX
+2. Ter o compilador C/C++ MSVC para compilar a biblioteca modificada `nbsp_fingerprint`.
+3. Ter Python instalado.
+4. Instalar todas as bibliotecas listadas no arquivo `requirements.txt`.
 
 ### Passos para Execução:
 
