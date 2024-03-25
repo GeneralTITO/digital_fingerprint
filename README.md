@@ -59,8 +59,13 @@ Este é um sistema modelo de registro de ponto de funcionários, desenvolvido pa
 
 ### Passos para Execução:
 
-1. Compile a biblioteca modificada `nbsp_fingerprint` utilizando o compilador C/C++ MSVC.
-2. Instale as bibliotecas Python necessárias usando o arquivo `requirements.txt`.
+1. Compile a biblioteca modificada `nbsp_fingerprint`.
+entre na pasta dela e rode o comando:
+ ```python
+pip install .
+``` 
+3. Instale as bibliotecas Python necessárias usando o arquivo `requirements.txt`.
+saia da pasta da biblioteca e rode:
 ```python
 pip install -r requirements.txt
 ``` 
