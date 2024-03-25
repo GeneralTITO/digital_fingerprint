@@ -49,4 +49,23 @@ Este é um sistema modelo de registro de ponto de funcionários, desenvolvido pa
 - [ ] salvar o arquivo de dados na nuvem
 - [ ] poder abrir um arquivo 
 
+## Como Executar o Sistema de Registro de Ponto de Funcionários
+
+### Requisitos:
+
+1. Ter o compilador C/C++ MSVC para compilar a biblioteca modificada `nbsp_fingerprint`.
+2. Ter Python instalado.
+3. Instalar todas as bibliotecas listadas no arquivo `requirements.txt`.
+
+### Passos para Execução:
+
+1. Compile a biblioteca modificada `nbsp_fingerprint` utilizando o compilador C/C++ MSVC.
+2. Instale as bibliotecas Python necessárias usando o arquivo `requirements.txt`.
+```python
+pip install -r requirements.txt
+``` 
+3. Execute o comando:
+```python
+python main.py
+``` 
 
